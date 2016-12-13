@@ -5,13 +5,15 @@ import java.util.List;
 
 public class Dashboard {
 
+	private int version;
 	private String title;
 	private String indexPattern;
 	private Filters filters;
 	private List<String> queries;
 	private String link;
 
-	Dashboard(String title, String indexPattern, String link) {
+	Dashboard(String title, String indexPattern, String link, int version) {
+		this.version = version;
 		this.title = title;
 		this.indexPattern = indexPattern;
 		this.link = link;
@@ -27,8 +29,8 @@ public class Dashboard {
 		this.title = title;
 	}
 
-	public void addOption(String type, String field, String value) {
-		filters.add(type, field, value);
+	public void addOption(String type, String field, String value, boolean negate) {
+		filters.add(type, field, value, negate, version);
 	}
 
 	public List<String> getFields() {
@@ -59,4 +61,7 @@ public class Dashboard {
 		return this.filters;
 	}
 
+	public int getVersion() {
+		return version;
+	}
 }
