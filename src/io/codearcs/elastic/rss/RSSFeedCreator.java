@@ -1,4 +1,4 @@
-package net.aw20.elastic.rss;
+package io.codearcs.elastic.rss;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -110,9 +110,6 @@ public abstract class RSSFeedCreator {
 			}
 
 		}
-
-		System.out.println(response);
-
 		return new JSONObject(builder.toString());
 	}
 
