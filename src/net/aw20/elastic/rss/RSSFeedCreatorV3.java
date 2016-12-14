@@ -226,7 +226,7 @@ public class RSSFeedCreatorV3 extends RSSFeedCreator {
 			 * "fquery": { "query": { "query_string": { "query":
 			 * "id=aeaergqe4g3" } }, "_cache": true }
 			 */
-			queryStringObject.put("query", query.getKey() + ":(" + query.getValue() + ")");
+			queryStringObject.put("query", query.getValue() + ":(" + query.getKey() + ")");
 			filterList = filterList + queries + ", ";
 		}
 		filterList = filterList.substring(0, filterList.length() - 2);
@@ -290,6 +290,7 @@ public class RSSFeedCreatorV3 extends RSSFeedCreator {
 			// remove ,@@terms@@ because it throws an exception if an empty
 			// terms object is there
 			searchTemplate = searchTemplate.replace("," + TERMS, "");
+			searchTemplate = searchTemplate.replace(TERMS_NOT, "");
 		}
 
 		// add queries to template search json
