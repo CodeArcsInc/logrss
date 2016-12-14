@@ -230,7 +230,7 @@ public class RSSFeedCreatorV3 extends RSSFeedCreator {
 			filterList = filterList + queries + ", ";
 		}
 		filterList = filterList.substring(0, filterList.length() - 2);
-		searchTemplate = searchTemplate.replace(TERMS, filterList).replace("\\\"", "\"");
+		searchTemplate = searchTemplate.replace(TERMS, filterList);
 
 		filterList = "";
 		// add filter queries to filter FILTER_QUERY_TEMPLATE
@@ -250,7 +250,7 @@ public class RSSFeedCreatorV3 extends RSSFeedCreator {
 		}
 
 		// replace @@terms@@
-		return searchTemplate.replace(TERMS_NOT, filterList).replace("\\\"", "\"");
+		return searchTemplate.replace(TERMS_NOT, filterList);
 	}
 
 	private String setQueries(String searchTemplate, Dashboard dashboard) {
@@ -272,7 +272,7 @@ public class RSSFeedCreatorV3 extends RSSFeedCreator {
 			}
 			queryList = queryList.substring(0, queryList.length() - 2);
 			// replace @@queries@@
-			return searchTemplate.replace(QUERIES, queryList).replace("\\\"", "\"");
+			return searchTemplate.replace(QUERIES, queryList);
 		}
 		return searchTemplate;
 	}
@@ -305,7 +305,7 @@ public class RSSFeedCreatorV3 extends RSSFeedCreator {
 		// replace @@to@@ and @@from@@
 		searchTemplate = searchTemplate.replace(TO, String.valueOf(System.currentTimeMillis()));
 		searchTemplate = searchTemplate.replace(FROM, String.valueOf(System.currentTimeMillis() - FROM_TIME))
-				.replace("\\\"", "\"");
+				.replace("\\\\\\\"", "\\\"");
 
 		return new JSONObject(searchTemplate);
 
