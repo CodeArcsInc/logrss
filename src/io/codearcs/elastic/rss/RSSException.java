@@ -1,4 +1,4 @@
-package net.aw20.elastic.rss;
+package io.codearcs.elastic.rss;
 
 
 public class RSSException extends Exception {

@@ -1,4 +1,4 @@
-package net.aw20.elastic.rss;
+package io.codearcs.elastic.rss;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
